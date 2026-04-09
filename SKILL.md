@@ -99,6 +99,19 @@ description: |
 - ✅ **云开发**: 微信云开发 / 腾讯云 CloudBase / 其他 BaaS 服务
 - ✅ **构建工具**: 微信开发者工具 / miniprogram-ci
 
+**基础库版本说明**：不同 API 有不同的基础库版本要求，使用新 API 前请检查兼容性。
+
+```javascript
+// 检查 API 可用性
+if (wx.canIUse('getUserProfile')) {
+  // 基础库 2.10.4+ 支持
+} else {
+  // 降级处理
+}
+```
+
+> **参考**：查看最新基础库版本及 API 兼容性，请访问微信官方文档 https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html
+
 ---
 
 ## 项目结构
@@ -1193,6 +1206,39 @@ function watchTodos(callback) {
 }
 ```
 
+### 云数据库安全规范
+
+**数据库权限配置**（重要）：
+云开发数据库默认受安全规则保护，需在云控制台配置访问权限。
+
+```json
+// 云数据库安全规则示例
+{
+  "read": "doc._openid == auth.openid",  // 用户只能读自己的数据
+  "write": "doc._openid == auth.openid"  // 用户只能写自己的数据
+}
+```
+
+**安全查询原则**：
+1. 始终在服务端（云函数）中执行敏感查询，避免前端直接查询
+2. 使用 `_openid` 字段自动隔离用户数据
+3. 复杂权限逻辑通过云函数封装，不要仅依赖前端 `.where()`
+
+```javascript
+// ✅ 推荐：敏感查询放在云函数中
+// 云函数 getUserOrders
+const db = cloud.database()
+return db.collection('orders')
+  .where({ userId: event.userId })  // 服务端验证用户身份后查询
+  .get()
+
+// ❌ 避免：前端直接查询可能暴露他人数据
+// 前端代码不应直接查询敏感集合
+```
+
+> **参考**：最新安全规则配置请参考微信官方文档 https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/security.html
+```
+
 ### 4. 云存储
 
 ```javascript
@@ -1526,6 +1572,10 @@ npm install tdesign-miniprogram
 # CloudBase Agent UI
 npm install @cloudbase/ai-agent-ui
 ```
+
+> **版本管理建议**：生产环境建议提交 `package-lock.json` 到版本控制，确保依赖版本一致性。如需查看各组件库最新版本，请参考官方文档：
+> - TDesign: https://tdesign.tencent.com/miniprogram/getting-started
+> - CloudBase Agent UI: https://docs.cloudbase.net/ai/agent-ui/agent-ui-mp
 
 ### GitHub 资源
 - [微信官方 GitHub](https://github.com/wechat-miniprogram)

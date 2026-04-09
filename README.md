@@ -1,7 +1,7 @@
 # 微信小程序开发 Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-repo/wechat-miniprogram-skill)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/youzhiqingw/wechat-miniprogram-skills)
 
 ![](./assets/images/wechat-miniprogram-skills.png)
 
@@ -55,15 +55,15 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-repo/wechat-miniprogram-skill.git
+git clone https://github.com/youzhiqingw/wechat-miniprogram-skills.git
 
 # 将 SKILL.md 添加到你的 AI 助手配置中
 ```
 
-### 方式三：npm 安装（如果你的 AI 助手支持）
+### 方式三：通过 npx 安装（如果你的 AI 助手支持）
 
 ```bash
-npx add-skill https://github.com/your-repo/wechat-miniprogram-skill
+npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 ```
 
 ## 🎓 使用示例
@@ -287,8 +287,8 @@ const { data } = await db.collection('todos')
 
 ## 📞 联系方式
 
-- 项目主页: [https://github.com/your-repo/wechat-miniprogram-skill](https://github.com/your-repo/wechat-miniprogram-skill)
-- 问题反馈: [Issues](https://github.com/your-repo/wechat-miniprogram-skill/issues)
+- 项目主页: [https://github.com/youzhiqingw/wechat-miniprogram-skills](https://github.com/youzhiqingw/wechat-miniprogram-skills)
+- 问题反馈: [Issues](https://github.com/youzhiqingw/wechat-miniprogram-skills/issues)
 
 ## 🔗 相关资源
 
