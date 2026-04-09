@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/youzhiqingw/wechat-miniprogram-skills)
 
+> **原作者**: [larkwins/wechat-miniprogram-skills](https://github.com/larkwins/wechat-miniprogram-skills)
+
 一个专为 AI 编程助手设计的微信小程序开发技能包，提供全面的开发指导、性能优化和最佳实践。
 
 ##  简介
