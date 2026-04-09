@@ -3,11 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/youzhiqingw/wechat-miniprogram-skills)
 
-![](./assets/images/wechat-miniprogram-skills.png)
-
 一个专为 AI 编程助手设计的微信小程序开发技能包，提供全面的开发指导、性能优化和最佳实践。
 
-## 📌 简介
+##  简介
 
 本 Skill 旨在让 AI 助手成为一位资深的微信小程序开发专家，能够：
 - 提供高质量的代码和架构建议
@@ -15,37 +13,37 @@
 - 遵循微信小程序的最佳实践和开发规范
 - 提供完整的错误处理和用户体验优化方案
 
-## ✨ 特性
+##  特性
 
-### 🎯 场景定义清晰
+###  场景定义清晰
 - 明确定义何时使用和何时不使用此 Skill
 - 避免与其他开发场景（Web、H5、原生应用）混淆
 - 提供清晰的关键词触发机制
 
-### ⚡ 性能优化深入
+### 性能优化深入
 - **setData 优化**: 使用数据路径进行局部更新，避免全量更新
 - **渲染优化**: 长列表虚拟化、图片懒加载、分包加载
 - **代码体积控制**: 主包 < 2MB，总包 < 20MB
 
-### 🛡️ 兼容性保障
+### 兼容性保障
 - iOS/Android 双端兼容性处理
 - 日期格式、键盘遮挡等常见问题解决方案
 - 基础库版本检查和降级方案
 
-### 📚 知识覆盖全面
+### 知识覆盖全面
 - 项目结构与配置
 - 开发规范（命名、代码风格）
 - API 使用指南
 - 云开发集成
 - 测试与发布流程
 
-### 🚀 创新补充
+### 创新补充
 - 完整的测试策略
 - 安全规范（数据加密、XSS 防护）
 - 用户体验优化（骨架屏、加载反馈）
 - 错误处理和监控
 
-## 📦 安装使用
+## 安装使用
 
 ### 方式一：直接使用（推荐）
 
@@ -66,7 +64,7 @@ git clone https://github.com/youzhiqingw/wechat-miniprogram-skills.git
 npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 ```
 
-## 📚 文档导航
+## 文档导航
 
 ### 核心文档
 - [`SKILL.md`](./SKILL.md) - 完整技能定义（开发规范、性能优化、API使用、云开发）
@@ -85,7 +83,7 @@ npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 - [`examples/cloud-development.md`](./examples/cloud-development.md) - 云开发完整示例
 - [`examples/typescript-template.md`](./examples/typescript-template.md) - TypeScript 项目示例
 
-## 🎓 使用示例
+## 使用示例
 
 ### 示例 1：创建标准项目结构
 
@@ -120,7 +118,7 @@ npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 - 提供将 `2024-03-31` 转换为 `2024/03/31` 的解决方案
 - 提供封装好的日期处理工具函数
 
-## 📖 核心内容速览
+## 核心内容速览
 
 ### 1. 开发原则
 
@@ -160,47 +158,17 @@ miniprogram/
 
 详细内容请查看 [`SKILL.md`](./SKILL.md) 及各参考文档。
 
-## 📊 性能指标
-
-- 首屏渲染时间: < 2s
-- setData 单次数据: < 1024KB
-- 代码包总大小: < 20MB
-- 主包大小: < 2MB
-- 单个分包: < 2MB
-- 页面栈深度: ≤ 10 层
-
-## 🤝 贡献与反馈
-
-欢迎提交 Issue 和 Pull Request 来改进这个 Skill！
-
-- 问题反馈: [Issues](https://github.com/youzhiqingw/wechat-miniprogram-skills/issues)
-- 贡献代码: Fork 本仓库，创建特性分支，提交 Pull Request
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
-## 🙏 致谢
+## 致谢
 
 本 Skill 的设计参考了以下优秀项目：
 - [TencentCloudBase/skills](https://github.com/TencentCloudBase/skills) - 企业级云开发集成
 - [gourdbaby/wechat-miniprogram-skill](https://github.com/gourdbaby/wechat-miniprogram-skill) - 性能优化实践
 - [joneqian/claude-skills-suite](https://github.com/joneqian/claude-skills-suite) - 全面的文档覆盖
 
-感谢这些项目为社区做出的贡献！
-
-## 📞 联系方式
-
-- 项目主页: [https://github.com/youzhiqingw/wechat-miniprogram-skills](https://github.com/youzhiqingw/wechat-miniprogram-skills)
-- 问题反馈: [Issues](https://github.com/youzhiqingw/wechat-miniprogram-skills/issues)
-
-## 🔗 相关资源
+##  相关资源
 
 - [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [小程序开发者社区](https://developers.weixin.qq.com/community/)
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 - [性能优化指南](https://developers.weixin.qq.com/miniprogram/dev/framework/performance/)
 
----
-
-**如果这个 Skill 对你有帮助，请给一个 ⭐️ Star！**
