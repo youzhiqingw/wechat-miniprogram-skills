@@ -66,6 +66,25 @@ git clone https://github.com/youzhiqingw/wechat-miniprogram-skills.git
 npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 ```
 
+## 📚 文档导航
+
+### 核心文档
+- [`SKILL.md`](./SKILL.md) - 完整技能定义（开发规范、性能优化、API使用、云开发）
+
+### 参考文档
+- [`references/api-reference.md`](./references/api-reference.md) - API 速查手册
+- [`references/performance-optimization.md`](./references/performance-optimization.md) - 性能优化详解
+- [`references/testing-guide.md`](./references/testing-guide.md) - 测试与调试指南
+- [`references/error-handling.md`](./references/error-handling.md) - 错误处理与错误码
+- [`references/deployment-guide.md`](./references/deployment-guide.md) - 发布与部署指南
+- [`references/version-compatibility.md`](./references/version-compatibility.md) - 基础库版本兼容性
+- [`references/ui-components-guide.md`](./references/ui-components-guide.md) - UI 组件库选型
+
+### 示例模板
+- [`examples/basic-template.md`](./examples/basic-template.md) - 基础项目模板
+- [`examples/cloud-development.md`](./examples/cloud-development.md) - 云开发完整示例
+- [`examples/typescript-template.md`](./examples/typescript-template.md) - TypeScript 项目示例
+
 ## 🎓 使用示例
 
 ### 示例 1：创建标准项目结构
@@ -101,7 +120,7 @@ npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 - 提供将 `2024-03-31` 转换为 `2024/03/31` 的解决方案
 - 提供封装好的日期处理工具函数
 
-## 📖 核心内容
+## 📖 核心内容速览
 
 ### 1. 开发原则
 
@@ -113,10 +132,10 @@ npx add-skill https://github.com/youzhiqingw/wechat-miniprogram-skills
 
 ### 2. 技术栈支持
 
-- ✅ 原生开发（JavaScript/TypeScript）
-- ✅ 跨平台框架（Taro/Uni-app）
-- ✅ 云开发（微信云开发/CloudBase）
-- ✅ 构建工具（微信开发者工具/miniprogram-ci）
+- 原生开发（JavaScript/TypeScript）
+- 跨平台框架（Taro/Uni-app）
+- 云开发（微信云开发/CloudBase）
+- 构建工具（微信开发者工具/miniprogram-ci）
 
 ### 3. 项目结构
 
@@ -133,108 +152,13 @@ miniprogram/
 └── cloud/                # 云函数
 ```
 
-### 4. 开发规范
+### 4. 关键要点
 
-- **命名规范**: kebab-case、camelCase、BEM
-- **代码规范**: 箭头函数、async/await、解构赋值
-- **组件化**: 优先使用 Component 构造器
-- **样式规范**: 使用 rpx、BEM 命名
+**性能优化**: 使用数据路径局部更新 setData，控制包体积（主包<2MB）
+**兼容性**: iOS日期格式用斜杠（2024/03/31），页面栈最大10层
+**安全**: 云数据库配置安全规则，不硬编码敏感信息
 
-### 5. 性能优化重点
-
-#### setData 优化
-```javascript
-// ✅ 推荐：局部更新
-this.setData({
-  'userInfo.nickName': 'New Name',
-  'list[0].status': 'completed'
-})
-
-// ❌ 避免：全量更新
-this.setData({
-  userInfo: { ...this.data.userInfo, nickName: 'New Name' }
-})
-```
-
-#### 长列表优化
-- 使用虚拟列表（recycle-view）
-- 分页加载
-- 图片懒加载
-
-#### 分包加载
-- 主包：核心功能 < 2MB
-- 分包：低频功能 < 2MB
-- 独立分包：可独立运行
-
-### 6. 常见问题防坑
-
-#### iOS 日期格式
-```javascript
-// ❌ iOS 不支持
-new Date('2024-03-31')
-
-// ✅ 兼容写法
-new Date('2024/03/31')
-```
-
-#### 页面栈限制（最大 10 层）
-```javascript
-const pages = getCurrentPages()
-if (pages.length >= 10) {
-  wx.redirectTo({ url: '/pages/target/target' })
-} else {
-  wx.navigateTo({ url: '/pages/target/target' })
-}
-```
-
-#### 原生组件层级
-```xml
-<video src="{{videoUrl}}">
-  <cover-view class="controls">
-    <cover-image src="/images/play.png" />
-  </cover-view>
-</video>
-```
-
-## 🔧 API 使用指南
-
-### 网络请求封装
-```javascript
-import request from '@/utils/request'
-
-// GET 请求
-const data = await request.get('/api/user/info')
-
-// POST 请求
-const result = await request.post('/api/user/update', {
-  nickName: 'New Name'
-})
-```
-
-### 用户授权
-```javascript
-import permission from '@/utils/permission'
-
-const hasPermission = await permission.check('scope.userLocation')
-if (hasPermission) {
-  wx.getLocation({ ... })
-}
-```
-
-### 云开发
-```javascript
-// 云函数调用
-const result = await wx.cloud.callFunction({
-  name: 'getUser',
-  data: { userId: 123 }
-})
-
-// 云数据库
-const db = wx.cloud.database()
-const { data } = await db.collection('todos')
-  .where({ status: 'active' })
-  .get()
-```
+详细内容请查看 [`SKILL.md`](./SKILL.md) 及各参考文档。
 
 ## 📊 性能指标
 
@@ -245,17 +169,12 @@ const { data } = await db.collection('todos')
 - 单个分包: < 2MB
 - 页面栈深度: ≤ 10 层
 
-## 🤝 贡献
+## 🤝 贡献与反馈
 
 欢迎提交 Issue 和 Pull Request 来改进这个 Skill！
 
-### 贡献指南
-
-1. Fork 本仓库
-2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交你的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开一个 Pull Request
+- 问题反馈: [Issues](https://github.com/youzhiqingw/wechat-miniprogram-skills/issues)
+- 贡献代码: Fork 本仓库，创建特性分支，提交 Pull Request
 
 ## 📄 许可证
 
@@ -269,21 +188,6 @@ const { data } = await db.collection('todos')
 - [joneqian/claude-skills-suite](https://github.com/joneqian/claude-skills-suite) - 全面的文档覆盖
 
 感谢这些项目为社区做出的贡献！
-
-### 相比参考示例的优势
-
-| 维度 | TencentCloudBase | gourdbaby | joneqian | **本 Skill** |
-|------|------------------|-----------|----------|------------|
-| 场景定义 | ✅ | ⚠️ | ⚠️ | ✅ |
-| 代码规范 | ❌ | ✅ | ⚠️ | ✅ |
-| 性能优化 | ❌ | ✅ | ⚠️ | ✅ |
-| 防坑指南 | ❌ | ✅ | ❌ | ✅ |
-| 工具链 | ✅ | ❌ | ⚠️ | ✅ |
-| API 参考 | ❌ | ❌ | ✅ | ✅ |
-| 云开发 | ✅ | ❌ | ⚠️ | ✅ |
-| 测试策略 | ❌ | ❌ | ❌ | ✅ |
-| 安全规范 | ❌ | ❌ | ❌ | ✅ |
-| UX 优化 | ❌ | ⚠️ | ❌ | ✅ |
 
 ## 📞 联系方式
 
